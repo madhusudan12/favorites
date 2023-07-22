@@ -46,9 +46,17 @@ python manage.py migrate
 
 5.Run the data population scripts to fetch movies and planets from the Star Wars API:
 ```shell
-python manage.py populate_movies
-python manage.py populate_planets
+python scripts/populate_data/populate_movies.py
+python scripts/populate_data/populate_planets.py
 ```
+If the above doesn't work. the same code can be run in django shell
+
+```shell
+python manage.py shell
+```
+
+and copy paste the code and run them
+
 6. Start the Gunicorn server:
 ```shell
 bash entrypoint.sh
