@@ -24,12 +24,16 @@ class FavoriteCreateView(generics.CreateAPIView):
         if content_type == 'movie':
             try:
                 movie = Movie.objects.get(pk=object_id)
+                if Favorite.objects.filter(user_id=user_id, movie=movie).exists():
+                    raise serializers.ValidationError("Favorite of the movie for this user already exists")
             except Movie.DoesNotExist:
                 raise serializers.ValidationError("Movie with the given ID does not exist.")
             serializer.save(movie=movie, planet=None)  # Set movie as the related object
         else:
             try:
                 planet = Planet.objects.get(pk=object_id)
+                if Favorite.objects.filter(user_id=user_id, planet=planet).exists():
+                    raise serializers.ValidationError("Favorite of the movie for this user already exists")
             except Planet.DoesNotExist:
                 raise serializers.ValidationError("Planet with the given ID does not exist.")
             serializer.save(movie=None, planet=planet)  # Set planet as the related object

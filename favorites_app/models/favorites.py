@@ -22,9 +22,9 @@ class Favorite(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        # Ensure the combination of user_id, content_type, and object_id is unique
-        unique_together = ['user_id', 'movie', 'planet']
+    # class Meta:
+    #     # Ensure the combination of user_id, content_type, and object_id is unique
+    #     unique_together = ['user_id', 'movie', 'planet']
 
     def __str__(self):
         return f"Favorite: {self.custom_name or self.movie or self.planet}"
