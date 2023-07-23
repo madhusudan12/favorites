@@ -67,7 +67,7 @@ The app is now running and accessible at http://localhost:8000/.
   - Method: GET
   - Query Parameters: `name` (optional) - Filter planets by name.
 
-- **List Favorites**: `/favorites/`
+- **List Favorites**: `/favorites/list/`
   - Method: GET
   - Query Parameters: `user_id` (optional) - Filter favorites by user ID.
 

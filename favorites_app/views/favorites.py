@@ -1,5 +1,6 @@
 
 from rest_framework import generics, serializers
+from rest_framework.pagination import PageNumberPagination
 
 from favorites_app.models.favorites import Favorite
 from favorites_app.models.planets import Planet
@@ -41,6 +42,7 @@ class FavoriteCreateView(generics.CreateAPIView):
 
 class FavoriteListView(generics.ListAPIView):
     serializer_class = FavoriteSerializer
+    pagination_class = PageNumberPagination
 
     def get_queryset(self):
         queryset = Favorite.objects.all()

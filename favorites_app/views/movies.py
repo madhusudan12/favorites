@@ -1,5 +1,7 @@
 from rest_framework import generics
 from rest_framework.filters import SearchFilter
+from rest_framework.pagination import PageNumberPagination
+
 from django_filters.rest_framework import DjangoFilterBackend
 from favorites_app.models.movies import Movie
 from favorites_app.serializers.movies import MovieSerializer
@@ -11,6 +13,7 @@ class MovieListView(generics.ListAPIView):
     """
     serializer_class = MovieSerializer
     queryset = Movie.objects.all()
+    pagination_class = PageNumberPagination
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['title']
     search_fields = ['title', 'favorites__custom_name']
