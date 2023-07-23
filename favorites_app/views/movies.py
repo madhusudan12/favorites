@@ -13,5 +13,5 @@ class MovieListView(generics.ListAPIView):
     queryset = Movie.objects.all()
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['title']
-    search_fields = ['title', 'favorite__custom_name']
+    search_fields = ['title', 'favorites__custom_name']
 

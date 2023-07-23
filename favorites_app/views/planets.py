@@ -13,5 +13,5 @@ class PlanetListView(generics.ListAPIView):
     queryset = Planet.objects.all()
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['name']
-    search_fields = ['name', 'favorite__custom_name']
+    search_fields = ['name', 'favorites__custom_name']
 
